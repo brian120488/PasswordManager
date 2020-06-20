@@ -22,7 +22,8 @@
             android:layout_weight="1"
             android:background="@color/colorSecondary"
             android:textColor="@color/colorPrimary"
-            android:text="Passwords" />
+            android:text="Passwords"
+            android:onClick="goToPasswords" />
 
         <Button
             android:id="@+id/homeButton"
@@ -31,7 +32,8 @@
             android:layout_weight="1"
             android:background="@color/colorSecondary"
             android:textColor="@color/colorPrimary"
-            android:text="Home" />
+            android:text="Home"
+            android:onClick="goToHome" />
 
         <Button
             android:id="@+id/generatorButton"
@@ -40,6 +42,7 @@
             android:layout_weight="1"
             android:background="@color/colorSecondary"
             android:textColor="@color/colorPrimary"
-            android:text="Generate" />
+            android:text="Generate"
+            android:onClick="goToGenerator" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
