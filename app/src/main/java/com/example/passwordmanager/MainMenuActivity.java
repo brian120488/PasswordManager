@@ -11,7 +11,7 @@ public class MainMenuActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_mainmenu);
     }
 
     public void goToPasswords(View view) {
@@ -24,7 +24,7 @@ public class MainMenuActivity extends AppCompatActivity {
     }
 
     public void goToGenerator(View view) {
-        Intent intent = new Intent(this, PasswordsActivity.class);
+        Intent intent = new Intent(this, GeneratorActivity.class);
         startActivity(intent);
     }
 }

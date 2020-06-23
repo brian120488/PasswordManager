@@ -1,5 +1,7 @@
 package com.example.passwordmanager;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.graphics.Color;
@@ -9,9 +11,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.ArrayList;
 import java.util.Hashtable;
 
 public class GeneratorActivity extends AppCompatActivity {
@@ -21,7 +27,12 @@ public class GeneratorActivity extends AppCompatActivity {
     Button generateButton;
     TextView generatorMessageTextView;
 
+
+    ArrayList<Password> passwords = new ArrayList<>();
+
     DatabaseReference databasePasswords;
+
+    PasswordGenerator passwordGenerator = new PasswordGenerator();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,26 +48,53 @@ public class GeneratorActivity extends AppCompatActivity {
         databasePasswords = database.getReference().child("passwords");
 
         generatorMessageTextView.setText("");
+
+        databasePasswords.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+                passwords.add(dataSnapshot.getValue(Password.class));
+                System.out.println(passwords);
+            }
+
+            //option to regenerate/change password?
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) { }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) { }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) { }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) { }
+        });
     }
 
     public void generateButtonPressed(View view) {
-        generatorMessageTextView.setTextColor(Color.RED);
-
         String website = websiteEditText.getText().toString().trim();
+        String message = checkWebsite(website);
 
-        if(website == "") {
-            generatorMessageTextView.setText("Please enter in a website.");
+        if(message != "") {
+            generatorMessageTextView.setTextColor(Color.RED);
+            generatorMessageTextView.setText(message);
         }
-        /*if(website == ){
-
-        }*/
+        else {
+            databasePasswords.push().setValue(passwordGenerator.getPassword());
+            generatorMessageTextView.setTextColor(Color.GREEN);
+            generatorMessageTextView.setText("Password created for " + website);
+        }
     }
 
-    public void generatePassword() {
-
-    }
-
-    public void displayError() {
-
+    public String checkWebsite(String website) {
+        if(website == "") {
+            return "Please enter in a website.";
+        }
+        for(int i = 0; i < passwords.size(); i++) {
+            if(passwords.get(i).getSite() == website) {
+                return "You already have a password created for this website";
+            }
+        }
+        return "";
     }
 }
