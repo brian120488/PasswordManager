@@ -22,6 +22,8 @@ public class PasswordAdapter extends ArrayAdapter<Password> {
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+        convertView = LayoutInflater.from(getContext()).inflate(R.layout.password, parent, false);
+        Password password = getItem(position);
 
         return convertView;
     }

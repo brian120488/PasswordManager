@@ -1,6 +1,8 @@
 package com.example.passwordmanager;
 
 import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Random;
 import java.util.regex.Pattern;
 
 public class PasswordGenerator {
@@ -9,11 +11,19 @@ public class PasswordGenerator {
     private static final String DIGITS = "0123456789";
     private static final String PUNCTUATION = "!@#$%&?";
 
-    private int length = 16;
-    private int upperNum = 1;
-    private int digitsNum = 1;
-    private int punctuationNum = 1;
-    private int lowerNum = length - upperNum - digitsNum - punctuationNum;
+    private int length;
+    private int upperNum;
+    private int digitsNum;
+    private int punctuationNum;
+    private int lowerNum;
+
+    public PasswordGenerator(int length, int upperNum, int digitsNum, int punctuationNum) {
+        this.length = length;
+        this.upperNum = upperNum;
+        this.digitsNum = digitsNum;
+        this.punctuationNum = punctuationNum;
+        this.lowerNum = length - upperNum - digitsNum - punctuationNum;
+    }
 
     public String getPassword() {
         String password = "";
