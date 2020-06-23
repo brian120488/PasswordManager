@@ -15,8 +15,6 @@ public class PasswordGenerator {
     private int punctuationNum = 1;
     private int lowerNum = length - upperNum - digitsNum - punctuationNum;
 
-    public PasswordGenerator() {}
-
     public String getPassword() {
         String password = "";
         for(int i = 0; i < upperNum; i++) {

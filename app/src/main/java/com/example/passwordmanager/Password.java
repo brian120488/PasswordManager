@@ -4,6 +4,10 @@ public class Password {
     private String password;
     private String site;
 
+    public Password() {
+
+    }
+
     public Password(String password, String site) {
         this.password = password;
         this.site = site;

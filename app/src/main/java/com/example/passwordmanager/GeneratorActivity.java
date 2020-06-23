@@ -80,18 +80,20 @@ public class GeneratorActivity extends AppCompatActivity {
             generatorMessageTextView.setText(message);
         }
         else {
-            databasePasswords.push().setValue(passwordGenerator.getPassword());
+            databasePasswords.push().setValue(new Password(passwordGenerator.getPassword(), website));
             generatorMessageTextView.setTextColor(Color.GREEN);
             generatorMessageTextView.setText("Password created for " + website);
         }
     }
 
     public String checkWebsite(String website) {
-        if(website == "") {
+        if(website.matches("")) {
             return "Please enter in a website.";
         }
         for(int i = 0; i < passwords.size(); i++) {
-            if(passwords.get(i).getSite() == website) {
+            System.out.println(passwords.get(i).getSite());
+            System.out.println("Website: " + website);
+            if(passwords.get(i).getSite().matches(website)) {
                 return "You already have a password created for this website";
             }
         }
