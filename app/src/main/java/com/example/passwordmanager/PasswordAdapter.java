@@ -24,6 +24,10 @@ public class PasswordAdapter extends ArrayAdapter<Password> {
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         convertView = LayoutInflater.from(getContext()).inflate(R.layout.password, parent, false);
         Password password = getItem(position);
+        TextView website = convertView.findViewById(R.id.website);
+        TextView pass = convertView.findViewById(R.id.password);
+        website.setText("Website: " + password.getSite());
+        pass.setText("Password: " + password.getPassword());
 
         return convertView;
     }
