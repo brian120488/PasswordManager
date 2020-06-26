@@ -1,3 +1,4 @@
+/*
 package com.example.passwordmanager;
 
 import android.content.Intent;
@@ -7,17 +8,10 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.firebase.ui.auth.AuthUI;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;/*
 
 import java.util.Arrays;
 
 public class LoginActivity extends AppCompatActivity {
-
-    private FirebaseAuth firebaseAuth;
-    FirebaseAuth.AuthStateListener authStateListener;
-    public static final int RC_SIGN_IN = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
