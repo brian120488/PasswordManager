@@ -40,7 +40,32 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
+    <TextView
+        android:id="@+id/description1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="An app designed to keep your passwords for numerous websites safe."
+        android:textSize="18sp"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <TextView
+        android:id="@+id/description2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:gravity="center"
+        android:text="A password generator so that your password always stays secure, and all passwords are stored for your convenience."
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/description1" />
+
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -54,10 +79,10 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@color/colorSecondary"
-            android:textColor="@color/colorPrimary"
+            android:onClick="goToPasswords"
             android:text="Passwords"
-            android:textSize="16sp"
-            android:onClick="goToPasswords" />
+            android:textColor="@color/colorPrimary"
+            android:textSize="16sp" />
 
         <Button
             android:id="@+id/homeButton"
@@ -65,10 +90,10 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@color/colorSecondary"
-            android:textColor="@color/colorPrimary"
+            android:onClick="goToHome"
             android:text="Home"
-            android:textSize="16sp"
-            android:onClick="goToHome" />
+            android:textColor="@color/colorPrimary"
+            android:textSize="16sp" />
 
         <Button
             android:id="@+id/generatorButton"
@@ -76,10 +101,10 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@color/colorSecondary"
-            android:textColor="@color/colorPrimary"
+            android:onClick="goToGenerator"
             android:text="Generate"
-            android:textSize="16sp"
-            android:onClick="goToGenerator" />
+            android:textColor="@color/colorPrimary"
+            android:textSize="16sp" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
