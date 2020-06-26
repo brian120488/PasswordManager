@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1067876318089",
+    "firebase_url": "https://passwordmanager-4580e.firebaseio.com",
+    "project_id": "passwordmanager-4580e",
+    "storage_bucket": "passwordmanager-4580e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1067876318089:android:1758dde374f94149f3bf58",
+        "android_client_info": {
+          "package_name": "com.example.passwordmanager"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1067876318089-il681dvejlgqnvgrka3q2rs2fq99u4t7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.passwordmanager",
+            "certificate_hash": "599889040ef58aacbe6af20b38e0b578449bdffd"
+          }
+        },
+        {
+          "client_id": "1067876318089-1c0oemmslclpbq1b568qoikknm6udk2c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBRmTSI4t1qIDjD-kDkaF4Aqdiu528XHOI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1067876318089-1c0oemmslclpbq1b568qoikknm6udk2c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
